@@ -1,7 +1,6 @@
 import allure
 import requests
 from src.data import Urls, Ingredients, ServerAnswers
-from src.helpers import CreateRandomUser
 
 @allure.suite('Тестируем получение заказов конкретного пользователя')
 class TestGetOrder:
