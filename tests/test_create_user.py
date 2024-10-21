@@ -8,8 +8,8 @@ from src.helpers import CreateRandomUser, RealUserData, RandomUserWithoutFields
 class TestCreateUser:
 
     @allure.title('Проверяем создание уникального пользователя')
-    def test_create_user(self):
-        user_data = CreateRandomUser.random_user()
+    def test_create_user(self, create_user):
+        user_data = create_user
         response = requests.post(f"{Urls.BASE_URL}{Urls.CREATE}", data=user_data)
         assert response.json()['success'] is True
 

@@ -24,3 +24,4 @@ class TestLogInUser:
         response = requests.post(f"{Urls.BASE_URL}{Urls.LOG_IN}", data=user_data)
         assert 401 == response.status_code and response.json()['message'] == ServerAnswers.unautorized_user
 
+

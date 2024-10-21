@@ -14,8 +14,8 @@ class TestChangeUser:
                                              ({'name: faker.name()'})
                                             ]
                             )
-    def test_change_autorized_user(self, update_data):
-        user_data = CreateRandomUser.random_user()
+    def test_change_autorized_user(self, update_data, create_user):
+        user_data = create_user
         response = requests.post(f"{Urls.BASE_URL}{Urls.CREATE}", data=user_data)
         get_token = response.json()['accessToken']
         new_data = requests.patch(f"{Urls.BASE_URL}{Urls.UPDATE_USER}",

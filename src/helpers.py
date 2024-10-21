@@ -1,4 +1,7 @@
+import requests
 from faker import Faker
+
+from src.data import Urls
 
 
 class CreateRandomUser:
@@ -86,3 +89,4 @@ class RealUserData:
 class LogInUser:
     log_in_wrong_email = RealUserData.wrong_email()
     log_in_wrong_password = RealUserData.wrong_password()
+

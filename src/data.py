@@ -6,6 +6,7 @@ class Urls:
     UPDATE_USER = 'api/auth/user'
     CREATE_ORDER = 'api/orders'
     GET_ORDER = 'api/orders'
+    DELETE_USER = 'api/auth/user'
 
 class ServerAnswers:
     registrated_user = 'User already exists'
