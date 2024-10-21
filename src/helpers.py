@@ -1,8 +1,4 @@
-import requests
 from faker import Faker
-
-from src.data import Urls
-
 
 class CreateRandomUser:
 
