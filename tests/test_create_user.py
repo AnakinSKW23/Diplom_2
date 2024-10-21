@@ -2,7 +2,7 @@ import allure
 import pytest
 import requests
 from src.data import Urls, ServerAnswers
-from src.helpers import CreateRandomUser, RealUserData, RandomUserWithoutFields
+from src.helpers import RealUserData, RandomUserWithoutFields
 
 @allure.suite('Тестируем создание пользователя')
 class TestCreateUser:
