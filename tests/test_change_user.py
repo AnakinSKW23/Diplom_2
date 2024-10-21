@@ -17,9 +17,8 @@ class TestChangeUser:
     def test_change_autorized_user(self, update_data, create_user):
         user_data = create_user
         response = requests.post(f"{Urls.BASE_URL}{Urls.CREATE}", data=user_data)
-        get_token = response.json()['accessToken']
         new_data = requests.patch(f"{Urls.BASE_URL}{Urls.UPDATE_USER}",
-                                data=update_data, headers={'Authorization': f'{get_token}'})
+                                data=update_data, headers={'Authorization': f'{response.json()['accessToken']}'})
         assert new_data.json()['success'] is True
 
     @allure.title('Проверяем изменение данных не авторизованного пользователя')
@@ -31,9 +30,8 @@ class TestChangeUser:
                              )
     def test_change_unautorized_user(self, update_data):
         user_data = CreateRandomUser.random_user()
-        response = requests.post(f"{Urls.BASE_URL}{Urls.CREATE}", data=user_data)
-        get_token = None
+        requests.post(f"{Urls.BASE_URL}{Urls.CREATE}", data=user_data)
         new_data = requests.patch(f"{Urls.BASE_URL}{Urls.UPDATE_USER}",
-                                  data=update_data, headers={'Authorization': f'{get_token}'})
+                                  data=update_data, headers={'Authorization': f'{None}'})
         assert 401 == new_data.status_code and new_data.json()['message'] == ServerAnswers.no_token
 
