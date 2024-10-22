@@ -32,6 +32,6 @@ class TestChangeUser:
         user_data = CreateRandomUser.random_user()
         requests.post(f"{Urls.BASE_URL}{Urls.CREATE}", data=user_data)
         new_data = requests.patch(f"{Urls.BASE_URL}{Urls.UPDATE_USER}",
-                                  data=update_data, headers={'Authorization': f'{None}'})
+                                  data=update_data, headers={'Authorization': None})
         assert 401 == new_data.status_code and new_data.json()['message'] == ServerAnswers.no_token
 
